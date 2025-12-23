@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:19 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/23 12:58:48 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:19:05 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ra(t_stack **a)
 	while (last->next)
 		last = (last)->next;
 	last->next = first;
-	write(1, "ra/n", 3);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
@@ -43,7 +43,7 @@ void	rb(t_stack **b)
 	while (last->next)
 		last = (last)->next;
 	last->next = first;
-	write(1, "rb/n", 3);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)
@@ -69,5 +69,5 @@ void	rr(t_stack **a, t_stack **b)
 	while (last->next)
 		last = (last)->next;
 	last->next = first;
-	write(1, "rr/n", 3);
+	write(1, "rr\n", 3);
 }

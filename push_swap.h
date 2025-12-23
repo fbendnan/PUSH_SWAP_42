@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/23 13:05:03 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/23 22:02:45 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s_stack
 {
