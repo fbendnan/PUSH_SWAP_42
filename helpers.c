@@ -1,18 +1,39 @@
-#include "push_swap.h"
-
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+static short	ft_isspace(char c)
 {
-	if (!new || !lst)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	if ((c == ' ') || (c == '\t') || (c == '\n')
+		|| (c == '\r') || (c == '\v') || (c == '\f'))
+		return (1);
+	return (0);
+}
+int	ft_isdigit(int c)
+{
+	if (c <= 57 && c >= 48)
+		return (1);
+	return (0);
 }
 
-void	ft_lstdelone(t_stack *lst, void (*del)(void*))
+int	ft_atoi(const char *nptr)
 {
-	if (!lst)
-		return ;
-	(*del)(lst->value);
-	(*del)(lst->index);
-	free (lst);
+	int		i;
+	long	n;
+	short	sign;
+
+	i = 0;
+	n = 0;
+	sign = 1;
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (nptr[i] == '+')
+		i++;
+	while (ft_isdigit(nptr[i]) && nptr[i])
+	{
+		n = n * 10 + ((int)nptr[i] - 48);
+		i++;
+	}
+	return ((int)(n * sign));
 }

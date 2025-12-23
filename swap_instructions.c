@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap_instructions.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/22 01:41:25 by fbendnan          #+#    #+#             */
+/*   Updated: 2025/12/22 01:43:47 by fbendnan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
 	int	tmp;
 
@@ -10,7 +22,7 @@ void sa(t_stack **a)
 	write(1, "sa\n", 3);
 }
 
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
 	int	tmp;
 

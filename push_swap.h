@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
+/*   Updated: 2025/12/23 12:13:47 by fbendnan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 #include <stdlib.h>
+
 typedef struct s_stack
 {
-    int value;
-    int	index;
-	struct s_stack *next;
-}   t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}	t_stack;
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
-void	ft_lstdelone(t_stack *lst, void (*del)(void*));
+int    ft_atoi(const char *nptr);
 
 #endif
