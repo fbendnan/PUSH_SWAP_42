@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:25 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/22 01:43:47 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:47:42 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,17 @@ void	sb(t_stack **b)
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = tmp;
 	write(1, "sb\n", 3);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	int	tmp;
+
+	tmp = (*a)->value;
+	(*a)->value = (*a)->next->value;
+	(*a)->next->value = tmp;
+	tmp = (*b)->value;
+	(*b)->value = (*b)->next->value;
+	(*b)->next->value = tmp;
+	write(1, "ss\n", 3);
 }
