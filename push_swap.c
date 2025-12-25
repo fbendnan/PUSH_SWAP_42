@@ -17,8 +17,6 @@ t_stack *fill_stack_a(int argc, char *argv[], t_stack **head_a)
 	t_stack	*a;
 	int	i;
 
-	if (argc == 1)
-		return NULL;
 	a = new_lst(argv[1]);
 	*head_a = a;
 	if (!a)
@@ -33,14 +31,24 @@ t_stack *fill_stack_a(int argc, char *argv[], t_stack **head_a)
 	return (*head_a);
 }
 
-void push_swap(int argc, char *argv[])
+void	err_msg(int is_error)
 {
-	t_stack	*head_a;
-
-	head_a = fill_stack_a(argc, argv, &head_a);
-	t_stack	*head_b =  malloc(sizeof(t_stack));
-	head_b = NULL;
+	if(is_error)
+		write(2, "Error\n", 7);
 }
+
+int error_repetition(t_stack *a, int num)
+{
+	while (!a)
+	{
+		if (a->value == num)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+
 
 int main(int argc, char *argv[])
 {   

@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/23 22:02:45 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/24 23:29:30 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_stack
 }	t_stack;
 
 int    ft_atoi(const char *nptr);
+char	**ft_split(char const *s, char c);
+t_stack *fill_stack_a(int argc, char *argv[], t_stack **head_a);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
