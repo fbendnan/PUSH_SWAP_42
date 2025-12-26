@@ -8,10 +8,12 @@ int main(int argc, char *argv[])
     head_a = NULL;
     head_b = NULL;
 
-    if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+    if (argc < 2)
+        return (0);
+    if (argc == 2 && argv[1][0] == '\0')
         return (1);
-    else if(argc == 2)
-    argv = ft_split(argv[1], ' ');
-	head_a = fill_stack_a(argc, argv, &head_a);
+	if (!fill_stack_a(argv, &head_a))
+        return (1);
 
+    return (0);
 }

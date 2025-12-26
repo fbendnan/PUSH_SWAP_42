@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 typedef struct s_stack
 {
@@ -25,7 +26,8 @@ typedef struct s_stack
 
 int    ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
-t_stack *fill_stack_a(int argc, char *argv[], t_stack **head_a);
+int 	fill_stack_a(char *argv[], t_stack **head_a);
+int		ft_isdigit(int c);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
