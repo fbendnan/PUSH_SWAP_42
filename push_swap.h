@@ -27,7 +27,11 @@ typedef struct s_stack
 int    ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 int 	fill_stack_a(char *argv[], t_stack **head_a);
+int check_error(char **args, int j, long *tmp, t_stack **head_a);
 int		ft_isdigit(int c);
+void	free_split(char **args);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlen(const char *str);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 void	sa(t_stack **a);

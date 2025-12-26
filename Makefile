@@ -7,7 +7,7 @@ AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = helpers.c  push_istructions.c  push_swap.c reverse_rotate_instructions.c\
-  rotate_instructions.c  swap_instructions.c
+  rotate_instructions.c  swap_instructions.c check_errors.c split.c
 
 
 

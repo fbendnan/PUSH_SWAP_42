@@ -37,9 +37,9 @@ int check_error(char **args, int j, long *tmp, t_stack **head_a)
 	if(invalid_nb_error(args[j]))
 		return (free_split(args), err_msg(), (1));
 	*tmp = ft_atoi(args[j]);
-	if (tmp > INT_MAX || tmp < INT_MIN)
+	if (*tmp > INT_MAX || *tmp < INT_MIN)
 		return (free_split(args), err_msg(), (1));
-	if (error_repetition(*head_a, (int)tmp))
+	if (error_repetition(*head_a, (int)(*tmp)))
 		return (free_split(args), err_msg(), (1));
 	return (0);
 }

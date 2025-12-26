@@ -1,10 +1,4 @@
-static short	ft_isspace(char c)
-{
-	if ((c == ' ') || (c == '\t') || (c == '\n')
-		|| (c == '\r') || (c == '\v') || (c == '\f'))
-		return (1);
-	return (0);
-}
+#include "push_swap.h"
 
 int	ft_isdigit(int c)
 {
@@ -37,3 +31,31 @@ int	ft_atoi(const char *nptr)
 	return ((int)(n * sign));
 }
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	if (size != 0)
+	{
+		while (src[i] && (i < size -1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
+}

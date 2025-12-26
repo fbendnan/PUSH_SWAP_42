@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	free_split(char **args)
+void	free_split(char **args)
 {
 	int k = 0;
 	if (!args)
