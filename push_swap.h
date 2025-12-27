@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/24 23:29:30 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/27 00:02:43 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -24,7 +25,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-int    ft_atoi(const char *nptr);
+long    ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 int 	fill_stack_a(char *argv[], t_stack **head_a);
 int check_error(char **args, int j, long *tmp, t_stack **head_a);

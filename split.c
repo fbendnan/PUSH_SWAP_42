@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 23:23:56 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/25 00:24:36 by fbendnan         ###   ########.fr       */
+/*   Created: 2025/12/27 00:44:00 by fbendnan          #+#    #+#             */
+/*   Updated: 2025/12/27 00:44:01 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,14 @@ static int	safe_malloc(char **str, size_t position, size_t len)
 	return (1);
 }
 
-static int	set_nt_in_first_pos(size_t *i, char **str)
-{
-	str[0] = malloc(1);
-	if (!str[0])
-		return (0);
-	str[0][0] = '\0';
-    *i = 1;
-    return (1);
-}
-
 static	char	**ft_fill(char **str, const char *s, char c)
 {
 	size_t	len;
 	size_t	i;
-    
+
 	i = 0;
 	while (*s)
 	{
-        if(i == 0 && !set_nt_in_first_pos(&i, str))
-            return ((free(str)),  (NULL));
 		len = 0;
 		while (*s == c && *s)
 			s++;
@@ -85,13 +73,13 @@ static	char	**ft_fill(char **str, const char *s, char c)
 		}
 		if (len)
 		{
-			if (!safe_malloc(str, i, len))
-                return (NULL);
-            ft_strlcpy(str[i], s - len, len + 1);
+			if (safe_malloc(str, i, len))
+				ft_strlcpy(str[i], s - len, len + 1);
 			i++;
 		}
 	}
-	return ((str[i] = NULL),  str);
+	str[i] = NULL;
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
@@ -102,9 +90,9 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words_num = ft_count_words(s, c);
-	str = malloc((words_num + 2) * sizeof(char *));
+	str = malloc((words_num + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
-	str = ft_fill(str, s, c);
+	ft_fill(str, s, c);
 	return (str);
 }

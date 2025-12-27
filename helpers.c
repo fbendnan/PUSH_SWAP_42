@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helpers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/27 00:44:40 by fbendnan          #+#    #+#             */
+/*   Updated: 2025/12/27 00:44:41 by fbendnan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_isdigit(int c)
@@ -7,7 +19,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	int		i;
 	long	n;
@@ -25,10 +37,10 @@ int	ft_atoi(const char *nptr)
 		i++;
 	while (ft_isdigit(nptr[i]) && nptr[i])
 	{
-		n = n * 10 + ((int)nptr[i] - 48);
+		n = n * 10 + (nptr[i] - 48);
 		i++;
 	}
-	return ((int)(n * sign));
+	return (n * sign);
 }
 
 size_t	ft_strlen(const char *str)
