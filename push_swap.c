@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:21 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/27 00:44:22 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:13:13 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int new_node_a(t_stack **a, int tmp, t_stack **head_a, char **args)
 	if (!(*a))
 		return (free_split(args), 0);
 	ft_lstadd_back(head_a, (*a));
+	return (1);
 }
 
 int fill_stack_a(char *argv[], t_stack **head_a)
@@ -80,7 +81,7 @@ int fill_stack_a(char *argv[], t_stack **head_a)
 			if (check_error(args, j, &tmp, head_a))
 				return (0);
 			if (!new_node_a(&a, (int)tmp, head_a, args))
-				return(0);
+				return (0);
 			j++;
 		}
 		free_split(args);
