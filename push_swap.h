@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/28 19:05:00 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:17:00 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 }	t_stack;
 
 void	chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size);
-// void	sorting_five_and_four(t_stack **a, t_stack **b);
+void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a);
 long	ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 int 	fill_stack_a(char *argv[], t_stack **head_a);

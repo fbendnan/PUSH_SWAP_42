@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:37 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/29 17:03:35 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:17:12 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
 		sa(&head_a);
 	else if (size_a == 3)
 		sorting_three(&head_a);
-	// else if(size_a == 5 || size_a == 4)
-	// 	sorting_five_and_four(&head_a, &head_b);
+	else if(size_a == 5 || size_a == 4)
+		sorting_five_and_four(&head_a, &head_b, size_a);
 	else
 		chunk_sort_100_500(&head_a, &head_b, size_a);
 	return (0);

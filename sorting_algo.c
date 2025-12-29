@@ -23,10 +23,43 @@ void	sorting_three(t_stack **a)
 		return (ra(a), sa(a));
 }
 
-// void	sorting_five_and_four(t_stack **a, t_stack **b)
-// {
+void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a)
+{
+	int	i;
 
-// }
+	if (size_a == 5)
+		i = 0;
+	else
+		i = 1;
+	while (i < 2)
+	{
+		if ((*a)->rank >= 3)
+		{
+			pb(a, b);
+			i++;
+			if (i == 2)
+				break;
+			
+		}
+		else if ((*a)->rank < 3)
+			ra(a);
+	}
+	sorting_three(a);
+	if (size_a == 5)
+	{
+		if((*b)->rank > (*b)->next->rank)
+			sb(b);
+		pa(a, b);
+		pa(a, b);
+		ra(a);
+		ra(a);
+	}
+	else
+	{
+		pa(a, b);
+		ra(a);
+	}
+}
 
 void search_max_rank_and_her_index(t_stack *b, int *max_rank, int *max_rank_index)
 {
