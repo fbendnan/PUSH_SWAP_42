@@ -71,3 +71,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
+
+int ft_stack_size(t_stack *b)
+{
+	int	size;
+
+	size = 0;
+	while (b)
+	{
+		size++;
+		b = b->next;
+	}
+	return (size);
+}

@@ -14,31 +14,31 @@
 
 void	set_rank_and_cal_stack_size(t_stack *a, int *size)
 {
-	t_stack	*tmp_stack;
-	t_stack	*tmp_stack_d;
+	t_stack	*tmp_current;
+	t_stack	*tmp_comp;
 	int		rank;
 
-	*size = 1;
-	tmp_stack = a;
-	while (tmp_stack)
+	*size = 0;
+	tmp_current = a;
+	while (tmp_current)
 	{
-		tmp_stack_d = a;
-		rank = 1;
-		while (tmp_stack_d)
+		tmp_comp = a;
+		rank = 0;
+		while (tmp_comp)
 		{
-			if (tmp_stack_d->value < tmp_stack->value)
+			if (tmp_comp->value < tmp_current->value)
 				rank++;
-			(tmp_stack_d) = (tmp_stack_d)->next;
+			(tmp_comp) = (tmp_comp)->next;
 		}
-		size++;
-		(tmp_stack)->rank = rank;
-		(tmp_stack) = (tmp_stack)->next;
+		(*size)++;
+		(tmp_current)->rank = rank;
+		(tmp_current) = (tmp_current)->next;
 	}
 }
 
 int is_sorted(t_stack *a)
 {
-	while (a)
+	while (a && a->next)
 	{
 		if (a->value > a->next->value)
 			return (0);
@@ -67,9 +67,9 @@ int main(int argc, char *argv[])
 	set_rank_and_cal_stack_size(head_a, &size_a);
 	if (size_a == 3)
 		sorting_three(&head_a);
-	else if(size_a == 5 || size_a == 4)
-		sorting_five_and_four(&head_a, &head_b);
+	// else if(size_a == 5 || size_a == 4)
+	// 	sorting_five_and_four(&head_a, &head_b);
 	else
-		chunk_sort_100_500(&head_a, &head_b);
+		chunk_sort_100_500(&head_a, &head_b, size_a);
 	return (0);
 }

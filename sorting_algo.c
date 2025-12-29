@@ -23,24 +23,25 @@ void	sorting_three(t_stack **a)
 		return (ra(a), sa(a));
 }
 
-void	sorting_five_and_four(t_stack **a, t_stack **b)
-{
+// void	sorting_five_and_four(t_stack **a, t_stack **b)
+// {
 
-}
+// }
 
-void search_max_rank_and_her_index(t_stack *b, int *max_number_rank, int *max_number_rank_index)
+void search_max_rank_and_her_index(t_stack *b, int *max_rank, int *max_rank_index)
 {
 	int	tmp, i;
 
-	tmp = b->value;
-	i = 1;
+	*max_rank_index = 0;
+	tmp = b->rank;
+	i = 0;
 	while (b)
 	{
-		if (b->value >= tmp)
+		if (b->rank >= tmp)
 		{
-			*max_number_rank = b->rank;
-			*max_number_rank_index = i;
-			tmp = b->value;
+			*max_rank = b->rank;
+			*max_rank_index = i;
+			tmp = b->rank;
 		}
 		b = b->next;
 		i++;
@@ -78,20 +79,21 @@ void	fill_stack_b_with_stack_a(t_stack **a, t_stack **b, int stack_a_size)
 
 void chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size)
 {
-	int	max_number_rank_index,	max_number_rank;
+	int	max_rank_index,	max_rank;
 
 	fill_stack_b_with_stack_a(a, b, stack_size);
 	while ((*b))
 	{
-		search_max_rank(*b, &max_number_rank, &max_number_rank_index);
-		if (max_number_rank_index <= stack_size / 2)
+		stack_size = ft_stack_size(*b);
+		search_max_rank_and_her_index(*b, &max_rank, &max_rank_index);
+		if (max_rank_index <= stack_size / 2)
 		{
-			while ((*b)->rank != max_number_rank)
+			while ((*b)->rank != max_rank)
 				rb(b);
 		}
 		else
 		{
-			while ((*b)->rank != max_number_rank)
+			while ((*b)->rank != max_rank)
 				rrb(b);
 		}
 		pa(a, b);

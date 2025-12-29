@@ -25,12 +25,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void chunk_sort_100_500(t_stack **a, t_stack **b);
-void	sorting_five_and_four(t_stack **a, t_stack **b);
-long    ft_atoi(const char *nptr);
+void	chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size);
+// void	sorting_five_and_four(t_stack **a, t_stack **b);
+long	ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 int 	fill_stack_a(char *argv[], t_stack **head_a);
-int check_error(char **args, int j, long *tmp, t_stack **head_a);
+int		check_error(char **args, int j, long *tmp, t_stack **head_a);
+int		ft_stack_size(t_stack *b);
 int		ft_isdigit(int c);
 void	free_split(char **args);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
