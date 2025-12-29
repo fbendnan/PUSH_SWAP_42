@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:13 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/27 00:44:14 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:55:06 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	rrb(t_stack **b)
 	prev->next = NULL;
 	last->next = *b;
 	*b = last;
-	write(1, "rra\n", 4);
+	write(1, "rrb\n", 4);
 }
 
 void    rrr(t_stack **a, t_stack **b)

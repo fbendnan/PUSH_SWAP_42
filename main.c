@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:37 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/28 19:12:13 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:03:35 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ int main(int argc, char *argv[])
 	if(is_sorted(head_a))
 		return (0);
 	set_rank_and_cal_stack_size(head_a, &size_a);
-	if (size_a == 3)
+	if(size_a == 2)
+		sa(&head_a);
+	else if (size_a == 3)
 		sorting_three(&head_a);
 	// else if(size_a == 5 || size_a == 4)
 	// 	sorting_five_and_four(&head_a, &head_b);
