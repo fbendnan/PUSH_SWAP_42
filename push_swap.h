@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/30 09:49:54 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:23:21 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+void	search_max_rank_and_i(t_stack *b, int *max_rank, int *max_rank_index);
 void	chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size);
 void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a);
-long	ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 char	**ft_split(char const *s, char c);
 int		fill_stack_a(char *argv[], t_stack **head_a);
 int		check_error(char **args, int j, long *tmp, t_stack **head_a);

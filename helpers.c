@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:40 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/30 09:48:53 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:23:21 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-long	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	int		i;
 	long	n;

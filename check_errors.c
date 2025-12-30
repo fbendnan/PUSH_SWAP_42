@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:48 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/30 09:57:08 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:32:16 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	check_error(char **args, int j, long *tmp, t_stack **head_a)
 {
 	if (invalid_nb_error(args[j]))
 		return (free_split(args), err_msg(), (1));
-	*tmp = ft_atoi(args[j]);
+	*tmp = ft_atol(args[j]);
 	if (*tmp > INT_MAX || *tmp < INT_MIN)
 		return (free_split(args), err_msg(), (1));
 	if (error_repetition(*head_a, (int)(*tmp)))

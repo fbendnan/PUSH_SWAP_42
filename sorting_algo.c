@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:51:49 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/30 13:01:08 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 17:49:46 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,46 +37,43 @@ void	sorting_three(t_stack **a)
 		return (ra(a), sa(a));
 }
 
-void wich_one(t_stack **a, t_stack **b, int size_a, int *i)
+void	wich_one(t_stack **a, t_stack **b, int size_a, int *i)
 {
-	if(size_a == 4)
-		{	
-			if ((*a)->rank < 1)
-			{
-				pb(a, b);
-				(*i)++;
-			}
-			else if ((*a)->rank >= 1)
-				ra(a);
+	if (size_a == 4)
+	{
+		if ((*a)->rank < 1)
+		{
+			pb(a, b);
+			(*i)++;
 		}
-		if(size_a == 5)
-		{	
-			if ((*a)->rank <= 1)
-			{
-				pb(a, b);
-				(*i)++;
-			}
-			else if ((*a)->rank > 1)
-				ra(a);
+		else if ((*a)->rank >= 1)
+			ra(a);
+	}
+	if (size_a == 5)
+	{
+		if ((*a)->rank <= 1)
+		{
+			pb(a, b);
+			(*i)++;
 		}
+		else if ((*a)->rank > 1)
+			ra(a);
+	}
 }
 
 void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a)
 {
 	int	i;
 
-	printf("%d size \n" , size_a);
 	if (size_a == 5)
 		i = 0;
 	else
 		i = 1;
-	printf("%d i \n" , i);
 	while (i < 2)
 	{
 		wich_one(a, b, size_a, &i);
 		if (i == 2)
 			break ;
-		
 	}
 	sorting_three(a);
 	if (size_a == 5)
@@ -88,37 +85,14 @@ void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a)
 	pa(a, b);
 }
 
-void	search_max_rank_and_i(t_stack *b, int *max_rank, int *max_rank_index)
+void	fill_stack_b(t_stack **a, t_stack **b, int a_size, int chunk_start)
 {
-	int	tmp;
-	int	i;
-
-	*max_rank_index = 0;
-	tmp = b->rank;
-	i = 0;
-	while (b)
-	{
-		if (b->rank >= tmp)
-		{
-			*max_rank = b->rank;
-			*max_rank_index = i;
-			tmp = b->rank;
-		}
-		b = b->next;
-		i++;
-	}
-}
-
-void	fill_stack_b_with_stack_a(t_stack **a, t_stack **b, int stack_a_size)
-{
-	int	chunk_start;
 	int	chunk_end;
 
-	chunk_start = 0;
-	if (stack_a_size <= 100)
-		chunk_end = stack_a_size / 6;
+	if (a_size <= 100)
+		chunk_end = a_size / 6;
 	else
-		chunk_end = stack_a_size / 14;
+		chunk_end = a_size / 14;
 	while (*a)
 	{
 		if ((*a)->rank <= chunk_start)
@@ -143,8 +117,10 @@ void	chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size)
 {
 	int	max_rank_index;
 	int	max_rank;
+	int	chunk_start;
 
-	fill_stack_b_with_stack_a(a, b, stack_size);
+	chunk_start = 0;
+	fill_stack_b(a, b, stack_size, chunk_start);
 	while ((*b))
 	{
 		stack_size = ft_stack_size(*b);
