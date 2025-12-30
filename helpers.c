@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:40 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/28 19:04:50 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 09:48:53 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (ft_strlen(src));
 }
 
-int ft_stack_size(t_stack *b)
+int	ft_stack_size(t_stack *b)
 {
 	int	size;
 

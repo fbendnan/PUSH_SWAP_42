@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:21 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/28 19:13:13 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 08:05:02 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_lstadd_back(t_stack **head, t_stack *new_node)
 	tmp->next = new_node;
 }
 
-int new_node_a(t_stack **a, int tmp, t_stack **head_a, char **args)
+int	new_node_a(t_stack **a, int tmp, t_stack **head_a, char **args)
 {
 	*a = new_lst(tmp);
 	if (!(*a))
@@ -62,11 +62,12 @@ int new_node_a(t_stack **a, int tmp, t_stack **head_a, char **args)
 	return (1);
 }
 
-int fill_stack_a(char *argv[], t_stack **head_a)
+int	fill_stack_a(char *argv[], t_stack **head_a)
 {
-	int	i,	j;
-	char **args;
-	long tmp;
+	int		i;
+	int		j;
+	char	**args;
+	long	tmp;
 	t_stack	*a;
 
 	i = 1;

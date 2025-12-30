@@ -1,11 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_algo.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/30 09:51:49 by fbendnan          #+#    #+#             */
+/*   Updated: 2025/12/30 13:01:08 by fbendnan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sorting_three(t_stack **a)
 {
-	int num_one,   num_two,	num_three;
+	int	num_one ;
+	int	num_two;
+	int	num_three;
 
 	if (!a || !*a || !(*a)->next || !(*a)->next->next)
-		return;
+		return ;
 	num_one = (*a)->value;
 	num_two = (*a)->next->value;
 	num_three = (*a)->next->next->value;
@@ -23,47 +37,61 @@ void	sorting_three(t_stack **a)
 		return (ra(a), sa(a));
 }
 
+void wich_one(t_stack **a, t_stack **b, int size_a, int *i)
+{
+	if(size_a == 4)
+		{	
+			if ((*a)->rank < 1)
+			{
+				pb(a, b);
+				(*i)++;
+			}
+			else if ((*a)->rank >= 1)
+				ra(a);
+		}
+		if(size_a == 5)
+		{	
+			if ((*a)->rank <= 1)
+			{
+				pb(a, b);
+				(*i)++;
+			}
+			else if ((*a)->rank > 1)
+				ra(a);
+		}
+}
+
 void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a)
 {
 	int	i;
 
+	printf("%d size \n" , size_a);
 	if (size_a == 5)
 		i = 0;
 	else
 		i = 1;
+	printf("%d i \n" , i);
 	while (i < 2)
 	{
-		if ((*a)->rank >= 3)
-		{
-			pb(a, b);
-			i++;
-			if (i == 2)
-				break;
-			
-		}
-		else if ((*a)->rank < 3)
-			ra(a);
+		wich_one(a, b, size_a, &i);
+		if (i == 2)
+			break ;
+		
 	}
 	sorting_three(a);
 	if (size_a == 5)
 	{
-		if((*b)->rank > (*b)->next->rank)
+		if ((*b)->rank < (*b)->next->rank)
 			sb(b);
 		pa(a, b);
-		pa(a, b);
-		ra(a);
-		ra(a);
 	}
-	else
-	{
-		pa(a, b);
-		ra(a);
-	}
+	pa(a, b);
 }
 
-void search_max_rank_and_her_index(t_stack *b, int *max_rank, int *max_rank_index)
+void	search_max_rank_and_i(t_stack *b, int *max_rank, int *max_rank_index)
 {
-	int	tmp, i;
+	int	tmp;
+	int	i;
 
 	*max_rank_index = 0;
 	tmp = b->rank;
@@ -83,7 +111,8 @@ void search_max_rank_and_her_index(t_stack *b, int *max_rank, int *max_rank_inde
 
 void	fill_stack_b_with_stack_a(t_stack **a, t_stack **b, int stack_a_size)
 {
-	int chunk_start,	chunk_end;
+	int	chunk_start;
+	int	chunk_end;
 
 	chunk_start = 0;
 	if (stack_a_size <= 100)
@@ -110,15 +139,16 @@ void	fill_stack_b_with_stack_a(t_stack **a, t_stack **b, int stack_a_size)
 	}
 }
 
-void chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size)
+void	chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size)
 {
-	int	max_rank_index,	max_rank;
+	int	max_rank_index;
+	int	max_rank;
 
 	fill_stack_b_with_stack_a(a, b, stack_size);
 	while ((*b))
 	{
 		stack_size = ft_stack_size(*b);
-		search_max_rank_and_her_index(*b, &max_rank, &max_rank_index);
+		search_max_rank_and_i(*b, &max_rank, &max_rank_index);
 		if (max_rank_index <= stack_size / 2)
 		{
 			while ((*b)->rank != max_rank)

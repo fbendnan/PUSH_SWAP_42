@@ -6,17 +6,17 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:30 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/29 18:17:00 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 09:49:54 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <limits.h>
-#include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -29,7 +29,7 @@ void	chunk_sort_100_500(t_stack **a, t_stack **b, int stack_size);
 void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a);
 long	ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
-int 	fill_stack_a(char *argv[], t_stack **head_a);
+int		fill_stack_a(char *argv[], t_stack **head_a);
 int		check_error(char **args, int j, long *tmp, t_stack **head_a);
 int		ft_stack_size(t_stack *b);
 int		ft_isdigit(int c);
@@ -46,7 +46,7 @@ void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
-void    rrr(t_stack **a, t_stack **b);
-void    sorting_three(t_stack **a);
+void	rrr(t_stack **a, t_stack **b);
+void	sorting_three(t_stack **a);
 
 #endif

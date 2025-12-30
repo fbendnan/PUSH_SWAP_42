@@ -6,7 +6,7 @@
 #    By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/27 00:44:33 by fbendnan          #+#    #+#              #
-#    Updated: 2025/12/29 17:30:16 by fbendnan         ###   ########.fr        #
+#    Updated: 2025/12/30 11:40:13 by fbendnan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS)  $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -fsanitize=address -g3 $(OBJS) -o $(NAME)
 
 clean : 
 	rm -rf $(OBJS) 

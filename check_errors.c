@@ -6,18 +6,18 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:48 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/28 16:24:09 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/30 09:57:08 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	err_msg()
+static void	err_msg(void)
 {
 	write(2, "Error\n", 7);
 }
 
-static int error_repetition(t_stack *a, int num)
+static int	error_repetition(t_stack *a, int num)
 {
 	while (a)
 	{
@@ -28,7 +28,7 @@ static int error_repetition(t_stack *a, int num)
 	return (0);
 }
 
-static int invalid_nb_error(const char *nptr)
+static int	invalid_nb_error(const char *nptr)
 {
 	int		i;
 
@@ -44,9 +44,9 @@ static int invalid_nb_error(const char *nptr)
 	return (0);
 }
 
-int check_error(char **args, int j, long *tmp, t_stack **head_a)
+int	check_error(char **args, int j, long *tmp, t_stack **head_a)
 {
-	if(invalid_nb_error(args[j]))
+	if (invalid_nb_error(args[j]))
 		return (free_split(args), err_msg(), (1));
 	*tmp = ft_atoi(args[j]);
 	if (*tmp > INT_MAX || *tmp < INT_MIN)
