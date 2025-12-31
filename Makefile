@@ -6,7 +6,7 @@
 #    By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/27 00:44:33 by fbendnan          #+#    #+#              #
-#    Updated: 2025/12/30 11:40:13 by fbendnan         ###   ########.fr        #
+#    Updated: 2025/12/31 15:41:53 by fbendnan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,16 @@ AR = ar rcs
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = helpers.c  push_istructions.c  push_swap.c reverse_rotate_instructions.c\
-  rotate_instructions.c  swap_instructions.c check_errors.c split.c sorting_algo.c main.c
+SRCS = helpers_one.c  push_istructions.c  push_swap.c reverse_rotate_instructions.c\
+  rotate_instructions.c  swap_instructions.c check_errors.c split.c sorting_algo.c\
+  main.c helpers_two.c
 
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -fsanitize=address -g3 $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean : 
 	rm -rf $(OBJS) 

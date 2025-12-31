@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:41:25 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/30 18:10:00 by fbendnan         ###   ########.fr       */
+/*   Updated: 2025/12/31 16:18:51 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	sa(t_stack **a)
 	int	tmp_value;
 	int	tmp_rank;
 
+	if (!a || !*a || !(*a)->next)
+		return ;
 	tmp_value = (*a)->value;
 	tmp_rank = (*a)->rank;
 	(*a)->value = (*a)->next->value;
@@ -31,6 +33,8 @@ void	sb(t_stack **b)
 	int	tmp_value;
 	int	tmp_rank;
 
+	if (!b || !*b || !(*b)->next)
+		return ;
 	tmp_value = (*b)->value;
 	tmp_rank = (*b)->rank;
 	(*b)->value = (*b)->next->value;
@@ -45,6 +49,8 @@ void	ss(t_stack **a, t_stack **b)
 	int	tmp_value;
 	int	tmp_rank;
 
+	if (!a || !*a || !(*a)->next || !b || !*b || !(*b)->next)
+		return ;
 	tmp_value = (*a)->value;
 	tmp_rank = (*a)->rank;
 	(*a)->value = (*a)->next->value;
