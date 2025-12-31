@@ -6,11 +6,12 @@
 #    By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/27 00:44:33 by fbendnan          #+#    #+#              #
-#    Updated: 2025/12/31 15:41:53 by fbendnan         ###   ########.fr        #
+#    Updated: 2025/12/31 17:48:20 by fbendnan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS_NAME = checker
 
 CC = cc
 
