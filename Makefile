@@ -23,12 +23,21 @@ SRCS = helpers_one.c  push_istructions.c  push_swap.c reverse_rotate_instruction
   rotate_instructions.c  swap_instructions.c check_errors.c split.c sorting_algo.c\
   main.c helpers_two.c
 
+SRCSB = checker.c get_next_line_utils.c push_istructions.c push_swap.c split.c helpers_one.c\
+  swap_instructions.c check_errors.c helpers_two.c get_next_line.c reverse_rotate_instructions.c\
+  rotate_instructions.c
+
 OBJS = $(SRCS:.c=.o)
+
+OBJSB = $(SRCSB:.c=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -fsanitize=address -g3 $(OBJS) -o $(NAME)
+
+bonus : $(OBJS)
+	$(CC) $(CFLAGS) -fsanitize=address -g3 $(OBJSB) -o $(BONUS_NAME)
 
 clean : 
 	rm -rf $(OBJS) 
@@ -38,4 +47,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

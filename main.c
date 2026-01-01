@@ -37,13 +37,12 @@ int	is_input_just_spaces(char **argv)
 		j = 0;
 		while (argv[i][j] == ' ')
 			j++;
-		if (argv[i][j] == '\0') // string was only spaces
+		if (argv[i][j] == '\0')
 			return (1);
 		i++;
 	}
 	return (0);
 }
-
 
 int	main(int argc, char *argv[])
 {

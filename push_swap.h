@@ -28,7 +28,8 @@ typedef struct s_stack
 void	search_max_rank_and_i(t_stack *b, int *max_rank, int *max_rank_index);
 void	set_rank_and_cal_stack_size(t_stack *a, int *size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-int		is_input_just_spaces(char *argv[]);
+int	empty_srting_inside_argv(char **argv);
+int	is_input_just_spaces(char **argv);
 char	**ft_split(char const *s, char c);
 void	free_split(char **args);
 size_t	ft_strlen(const char *str);
