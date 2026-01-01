@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   helpers_three.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 08:03:27 by fbendnan          #+#    #+#             */
-/*   Updated: 2026/01/01 14:58:18 by fbendnan         ###   ########.fr       */
+/*   Created: 2026/01/01 15:01:09 by fbendnan          #+#    #+#             */
+/*   Updated: 2026/01/01 15:01:10 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+int	empty_srting_inside_argv(char **argv)
+{
+	int	i;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+	i = 1;
+	while (argv[i])
+	{
+		if (argv[i][0] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+int	is_input_just_spaces(char **argv)
+{
+	int	i;
+	int	j;
 
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-
-#endif
+	i = 1;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j] == ' ')
+			j++;
+		if (argv[i][j] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
+}

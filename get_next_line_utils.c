@@ -6,25 +6,25 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 08:03:44 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/11/23 14:53:31 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/01 14:56:51 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	i;
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+// 	i = 0;
+// 	if (!str)
+// 		return (0);
+// 	while (str[i] != '\0')
+// 	{
+// 		i++;
+// 	}
+// 	return (i);
+// }
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -59,24 +59,24 @@ char	*ft_strdup(const char *s)
 	return (s_cpy);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
+// size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+// {
+// 	size_t	i;
 
-	i = 0;
-	if (!dst || !src)
-		return (0);
-	if (size != 0)
-	{
-		while (src[i] && (i < size -1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
-}
+// 	i = 0;
+// 	if (!dst || !src)
+// 		return (0);
+// 	if (size != 0)
+// 	{
+// 		while (src[i] && (i < size -1))
+// 		{
+// 			dst[i] = src[i];
+// 			i++;
+// 		}
+// 		dst[i] = '\0';
+// 	}
+// 	return (ft_strlen(src));
+// }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

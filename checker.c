@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 17:45:50 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/31 17:55:36 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/01 15:13:45 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (1);
 }
 
-int	check_instructions(char *str, t_stack **a, t_stack **b)
+int	check_instruction(char *str, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp("sa\n", str))
 		return (sa(a), 1);
@@ -56,12 +56,37 @@ int	check_instructions(char *str, t_stack **a, t_stack **b)
 		return (0);
 }
 
+void	execute_instructions(t_stack **a, t_stack **b)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = get_next_line(0);
+		if (!line)
+			return (free(line));
+		if (!check_instruction(line, a, b))
+			break;
+	}
+	if (is_sorted(*a))
+	{
+		free_stack(a);
+		write(1, "OK\n", 3);
+		return ;
+		
+	}
+	else
+	{
+		free_stack(a);
+		write(1, "KO\n", 3);
+		return ;
+	}
+}
+
 int main(int argc, char *argv[])
 {
 	t_stack	*head_a;
 	t_stack	*head_b;
-	int		size_a;
-	char	*line;
 
 	head_a = NULL;
 	head_b = NULL;
@@ -71,15 +96,5 @@ int main(int argc, char *argv[])
 		return ((write(2, "Error\n", 6)), 1);
 	if (!fill_stack_a(argv, &head_a))
 		return (free_stack(&head_a), 1);
-	while (1)
-	{
-		line = get_next_line(0);
-		if (!line)
-			return (1);
-		check_instructions(line, &head_a, &head_b);
-	}
-	if (is_sorted(head_a))
-		return (free_stack(&head_a), write(1, "OK\n", 3));
-	else
-		return(free_stack(&head_a), write(1, "KO\n", 3));
+	execute_instructions(&head_a, &head_b);
 }

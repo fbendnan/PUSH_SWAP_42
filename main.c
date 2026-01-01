@@ -6,43 +6,11 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 00:44:37 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/31 16:22:19 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/01 15:01:02 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	empty_srting_inside_argv(char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (argv[i])
-	{
-		if (argv[i][0] == '\0')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	is_input_just_spaces(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j] == ' ')
-			j++;
-		if (argv[i][j] == '\0')
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int	main(int argc, char *argv[])
 {
