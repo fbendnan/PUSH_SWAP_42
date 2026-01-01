@@ -23,8 +23,6 @@ void	sorting_three(t_stack **a)
 	num_one = (*a)->value;
 	num_two = (*a)->next->value;
 	num_three = (*a)->next->next->value;
-	if (num_one < num_two && num_two < num_three)
-		return ;
 	if (num_one < num_two && num_two > num_three && num_one < num_three)
 		return (sa(a), ra(a));
 	if (num_one > num_two && num_two < num_three && num_one < num_three)
@@ -78,11 +76,14 @@ void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a)
 	sorting_three(a);
 	if (size_a == 5)
 	{
-		if ((*b)->rank < (*b)->next->rank)
+		if (*b && (*b)->next && (*b)->rank < (*b)->next->rank)
 			sb(b);
-		pa(a, b);
+		if (*b)
+			pa(a, b);
 	}
-	pa(a, b);
+	if (*b)
+		pa(a, b);
+
 }
 
 void	fill_stack_b(t_stack **a, t_stack **b, int a_size, int chunk_start)

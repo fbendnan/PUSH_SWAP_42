@@ -12,43 +12,38 @@
 
 #include "push_swap.h"
 
-int	empty_srting_inside_argv(char *argv[])
+int	empty_srting_inside_argv(char **argv)
 {
 	int	i;
-	int	j;
 
 	i = 1;
-	while (argv[i++])
+	while (argv[i])
 	{
-		j = 0;
-		if (argv[i][j] == '\0')
+		if (argv[i][0] == '\0')
 			return (1);
-		while (argv[i][j++])
-		{
-			j++;
-		}
 		i++;
 	}
 	return (0);
 }
 
-int	is_input_just_spaces(char *argv[])
+int	is_input_just_spaces(char **argv)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (argv[i++])
+	while (argv[i])
 	{
 		j = 0;
-		while (argv[i][j++])
-		{
-			if (argv[i][j] != ' ')
-				return (0);
-		}
+		while (argv[i][j] == ' ')
+			j++;
+		if (argv[i][j] == '\0') // string was only spaces
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
 }
+
 
 int	main(int argc, char *argv[])
 {

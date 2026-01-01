@@ -51,7 +51,7 @@ void	rr(t_stack **a, t_stack **b)
 	t_stack	*first;
 	t_stack	*last;
 
-	if (!a || !(*a) || !(*a)->next)
+	if (!a || !(*a) || !(*a)->next || !(b) || !(*b) || !(*b)->next)
 		return ;
 	first = (*a);
 	*a = (first)->next;
@@ -60,8 +60,6 @@ void	rr(t_stack **a, t_stack **b)
 	while (last->next)
 		last = (last)->next;
 	last->next = first;
-	if (!(b) || !(*b) || !(*b)->next)
-		return ;
 	first = (*b);
 	*b = (first)->next;
 	first->next = NULL;
