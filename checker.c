@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 17:45:50 by fbendnan          #+#    #+#             */
-/*   Updated: 2026/01/01 15:13:45 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/01 15:36:48 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ int	ft_strcmp(const char *s1, const char *s2)
 int	check_instruction(char *str, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp("sa\n", str))
-		return (sa(a), 1);
+		return (bonus_sa(a), 1);
 	else if (ft_strcmp("sb\n", str))
-		return (sb(b), 1);
+		return (bonus_sb(b), 1);
 	else if (ft_strcmp("ss\n", str))
-		return (ss(a, b), 1);
+		return (bonus_ss(a, b), 1);
 	else if (ft_strcmp("pa\n", str))
-		return (pa(a, b), 1);
+		return (bonus_pa(a, b), 1);
 	else if (ft_strcmp("pb\n", str))
-		return (pb(a, b), 1);
+		return (bonus_pb(a, b), 1);
 	else if (ft_strcmp("ra\n", str))
-		return (ra(a), 1);
+		return (bonus_ra(a), 1);
 	else if (ft_strcmp("rb\n", str))
-		return (rb(b), 1);
+		return (bonus_rb(b), 1);
 	else if (ft_strcmp("rr\n", str))
-		return (rr(a, b), 1);
+		return (bonus_rr(a, b), 1);
 	else if (ft_strcmp("rra\n", str))
-		return (rra(a), 1);
+		return (bonus_rra(a), 1);
 	else if (ft_strcmp("rrb\n", str))
-		return (rrb(b), 1);
+		return (bonus_rrb(b), 1);
 	else if (ft_strcmp("rrr\n", str))
-		return (rrr(a, b), 1);
+		return (bonus_rrr(a, b), 1);
 	else
 		return (0);
 }
@@ -67,6 +67,7 @@ void	execute_instructions(t_stack **a, t_stack **b)
 			return (free(line));
 		if (!check_instruction(line, a, b))
 			break;
+		free(line);
 	}
 	if (is_sorted(*a))
 	{
