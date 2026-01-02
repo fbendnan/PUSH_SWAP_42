@@ -40,11 +40,11 @@ bonus : $(OBJSB)
 	$(CC) $(CFLAGS) -fsanitize=address -g3 $(OBJSB) -o $(BONUS_NAME)
 
 clean : 
-	rm -rf $(OBJS) 
+	rm -rf $(OBJS) $(OBJSB)
 
 fclean : clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUS_NAME)
 
-re : fclean all
+re : fclean all 
 
 .PHONY : all clean fclean re bonus

@@ -12,45 +12,41 @@
 
 #include "checker.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_streq(const char *s1, const char *s2)
 {
 	size_t	i;
 
-	i = 0;
 	if (!s1 || !s2)
 		return (0);
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	}
-	return (1);
+	return (s1[i] == '\0' && s2[i] == '\0');
 }
 
 int	check_instruction(char *str, t_stack **a, t_stack **b)
 {
-	if (ft_strcmp("sa\n", str))
+	if (ft_streq("sa\n", str))
 		return (bonus_sa(a), 1);
-	else if (ft_strcmp("sb\n", str))
+	else if (ft_streq("sb\n", str))
 		return (bonus_sb(b), 1);
-	else if (ft_strcmp("ss\n", str))
+	else if (ft_streq("ss\n", str))
 		return (bonus_ss(a, b), 1);
-	else if (ft_strcmp("pa\n", str))
+	else if (ft_streq("pa\n", str))
 		return (bonus_pa(a, b), 1);
-	else if (ft_strcmp("pb\n", str))
+	else if (ft_streq("pb\n", str))
 		return (bonus_pb(a, b), 1);
-	else if (ft_strcmp("ra\n", str))
+	else if (ft_streq("ra\n", str))
 		return (bonus_ra(a), 1);
-	else if (ft_strcmp("rb\n", str))
+	else if (ft_streq("rb\n", str))
 		return (bonus_rb(b), 1);
-	else if (ft_strcmp("rr\n", str))
+	else if (ft_streq("rr\n", str))
 		return (bonus_rr(a, b), 1);
-	else if (ft_strcmp("rra\n", str))
+	else if (ft_streq("rra\n", str))
 		return (bonus_rra(a), 1);
-	else if (ft_strcmp("rrb\n", str))
+	else if (ft_streq("rrb\n", str))
 		return (bonus_rrb(b), 1);
-	else if (ft_strcmp("rrr\n", str))
+	else if (ft_streq("rrr\n", str))
 		return (bonus_rrr(a, b), 1);
 	else
 		return (0);
@@ -64,24 +60,23 @@ void	execute_instructions(t_stack **a, t_stack **b)
 	{
 		line = get_next_line(0);
 		if (!line)
-			return (free(line));
-		if (!check_instruction(line, a, b))
 			break;
+		if (!check_instruction(line, a, b))
+		{
+			free(line);
+			free_stack(a);
+			free_stack(b);
+			write(2, "Error\n", 6);
+			return;
+		}
 		free(line);
 	}
-	if (is_sorted(*a))
-	{
-		free_stack(a);
+	if (is_sorted(*a) && *b == NULL)
 		write(1, "OK\n", 3);
-		return ;
-		
-	}
 	else
-	{
-		free_stack(a);
 		write(1, "KO\n", 3);
-		return ;
-	}
+	free_stack(a);
+	free_stack(b);
 }
 
 int main(int argc, char *argv[])
