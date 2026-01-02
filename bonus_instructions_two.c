@@ -6,12 +6,11 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 15:26:56 by fbendnan          #+#    #+#             */
-/*   Updated: 2026/01/01 15:45:54 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/02 10:32:43 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
 
 void	bonus_rrb(t_stack **b)
 {

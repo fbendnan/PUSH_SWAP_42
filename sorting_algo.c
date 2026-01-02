@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 09:51:49 by fbendnan          #+#    #+#             */
-/*   Updated: 2025/12/30 17:49:46 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/02 10:31:13 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	sorting_five_and_four(t_stack **a, t_stack **b, int size_a)
 	}
 	if (*b)
 		pa(a, b);
-
 }
 
 void	fill_stack_b(t_stack **a, t_stack **b, int a_size, int chunk_start)

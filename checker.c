@@ -6,7 +6,7 @@
 /*   By: fbendnan <fbendnan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 17:45:50 by fbendnan          #+#    #+#             */
-/*   Updated: 2026/01/01 15:36:48 by fbendnan         ###   ########.fr       */
+/*   Updated: 2026/01/02 10:32:08 by fbendnan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ void	execute_instructions(t_stack **a, t_stack **b)
 	{
 		line = get_next_line(0);
 		if (!line)
-			break;
+			break ;
 		if (!check_instruction(line, a, b))
 		{
 			free(line);
 			free_stack(a);
 			free_stack(b);
 			write(2, "Error\n", 6);
-			return;
+			return ;
 		}
 		free(line);
 	}
@@ -79,7 +79,7 @@ void	execute_instructions(t_stack **a, t_stack **b)
 	free_stack(b);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stack	*head_a;
 	t_stack	*head_b;
